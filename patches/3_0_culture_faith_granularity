@@ -1,0 +1,24 @@
+#!/bin/bash
+PRE="	state = {
+		name = _hide
+		on_start = \"[GetVariableSystem.Clear( 'county_view_open' )]\"
+		on_start = \"[GetVariableSystem.Clear( 'hide_bottom_left_HUD' )]\"
+
+		using = Animation_FadeOut_Standard
+		using = Sound_WindowHide_Standard
+		using = Animation_FadeOut_BottomLeft
+	}
+"
+
+POST="	state = {
+		name = _hide
+		on_start = \"[GetVariableSystem.Clear( 'county_view_open' )]\"
+		on_start = \"[GetVariableSystem.Clear( 'hide_bottom_left_HUD' )]\"
+
+		using = Animation_FadeOut_Standard
+		using = Sound_WindowHide_Standard
+		using = Animation_FadeOut_BottomLeft
+	}
+
+	using = kCAFG_County_View_States
+"

@@ -1,0 +1,22 @@
+#!/bin/bash
+PRE="text_single = {
+						visible = \"[HoldingView.GetProvince.IsOccupied]\"
+						text = \"[HoldingView.GetOccupiedInfo]\"
+						default_format = \"#high\"
+					}
+				}
+			}
+
+			### BOTTOM LEFT"
+
+POST="text_single = {
+						visible = \"[HoldingView.GetProvince.IsOccupied]\"
+						text = \"[HoldingView.GetOccupiedInfo]\"
+						default_format = \"#high\"
+					}
+				}
+			}
+			
+			using = kCAFG_Province_View_Additional_Buttons
+
+			### BOTTOM LEFT"

@@ -1,0 +1,140 @@
+#!/bin/bash
+PRE="				flowcontainer = {
+					name = \"buildings_grid_special\"
+					parentanchor = right
+					ignoreinvisible = yes
+					margin_right = -3
+
+					# Upgrade buildings
+					flowcontainer = {
+						name = \"buildings_grid\"
+						datamodel = \"[HoldingView.GetBuildings]\"
+						ignoreinvisible = yes
+						spacing = 3
+						margin_right = 3
+						righttoleft = yes
+
+						item = {
+							widget_building_item = {}
+						}
+					}
+
+					flowcontainer = {
+						visible = \"[Or(HoldingView.HasDuchyCapitalBuildingSlot, HoldingView.HasSpecialBuildingSlot )]\"
+						spacing = 3
+						ignoreinvisible = yes
+
+						widget_building_item = {
+							name = \"duchy_capital_building\"
+							datacontext = \"[HoldingView.GetGUIDuchyCapitalBuilding]\"
+							visible = \"[HoldingView.HasDuchyCapitalBuildingSlot]\"
+
+							button_standard = {
+								size = { 100% 100% }
+								texture = \"gfx/interface/buttons/button_duchy_capital.dds\"
+								alwaystransparent = yes
+								spriteborder = { 20 20 }
+							}
+						}
+
+						widget_building_item = {
+							name = \"special_building\"
+							datacontext = \"[HoldingView.GetGUISpecialBuilding]\"
+							visible = \"[HoldingView.HasSpecialBuildingSlot]\"
+
+							button_standard = {
+								size = { 100% 100% }
+								texture = \"gfx/interface/buttons/button_special_building.dds\"
+								alwaystransparent = yes
+								spriteborder = { 20 20 }
+							}
+						}
+
+						widget = {
+							# This is needed to offset the building slots correctly when special building slots exist.
+							name = \"Conditional_margin_widget\"
+							size = { 0 0 }
+							visible = \"[HoldingView.HasSpecialBuildingSlot]\"
+						}
+					}
+"
+
+POST="
+				flowcontainer = {
+					name = \"buildings_grid_special\"
+					ignoreinvisible = yes
+					spacing = 4
+					direction = vertical
+					layoutpolicy_horizontal = fixed
+					layoutpolicy_vertical = growing
+					
+					# Special buildings
+					flowcontainer = {
+						parentanchor = right
+						visible = \"[Or(HoldingView.HasDuchyCapitalBuildingSlot, HoldingView.HasSpecialBuildingSlot )]\"
+						spacing = 3
+						ignoreinvisible = yes
+					
+
+						widget_building_item = {
+							name = \"duchy_capital_building\"
+							datacontext = \"[HoldingView.GetGUIDuchyCapitalBuilding]\"
+							visible = \"[HoldingView.HasDuchyCapitalBuildingSlot]\"
+
+							button_standard = {
+								size = { 100% 100% }
+								texture = \"gfx/interface/buttons/button_duchy_capital.dds\"
+								alwaystransparent = yes
+								spriteborder = { 20 20 }
+							}
+						}
+
+						widget_building_item = {
+							name = \"special_building\"
+							datacontext = \"[HoldingView.GetGUISpecialBuilding]\"
+							visible = \"[HoldingView.HasSpecialBuildingSlot]\"
+
+							button_standard = {
+								size = { 100% 100% }
+								texture = \"gfx/interface/buttons/button_special_building.dds\"
+								alwaystransparent = yes
+								spriteborder = { 20 20 }
+							}
+						}
+
+						widget = {
+							# This is needed to offset the building slots correctly when special building slots exist.
+							name = \"Conditional_margin_widget\"
+							size = { 0 0 }
+							visible = \"[HoldingView.HasSpecialBuildingSlot]\"
+						}
+					}
+
+					# Upgrade buildings					
+					scrollbox = {
+						size = {350 120}
+						name = \"buildings_grid_scroll_area\"
+						scrollbarpolicy_horizontal = always_off
+
+						scrollwidget = {							
+							fixedgridbox = {
+								name = \"buildings_grid\"
+								datamodel = \"[HoldingView.GetBuildings]\"
+								ignoreinvisible = yes
+								spacing = 3
+								flipdirection = yes
+								addcolumn = 58
+								addrow = 58
+								datamodel_wrap = 6
+								maxhorizontalslots = 6
+								maxverticalslots = 600
+
+								item = {
+									widget_building_item = {
+										parentanchor = top|left
+									}
+								}
+							}
+						}
+					}
+"

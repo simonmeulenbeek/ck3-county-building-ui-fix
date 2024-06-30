@@ -1,0 +1,28 @@
+#!/bin/bash
+PRE="######################################################
+################### COUNTY VIEW ######################
+######################################################
+
+window = {
+	name = \"holding_view\"
+	widgetid = \"holding_view\"
+	parentanchor = bottom|left
+	allow_outside = yes
+	movable = no
+	layer = windows_layer
+	size = { 625 645 }
+"
+
+POST="######################################################
+################### COUNTY VIEW ######################
+######################################################
+
+window = {
+	name = \"holding_view\"
+	widgetid = \"holding_view\"
+	parentanchor = bottom|left
+	allow_outside = yes
+	movable = no
+	layer = windows_layer
+	size = { 625 780 }
+"
